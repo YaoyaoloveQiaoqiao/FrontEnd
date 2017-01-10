@@ -28,11 +28,16 @@ function scrollSide(){
 
 function imgLocation(){
     var box=$(".box");
-    var boxWidth=box.eq(0).width();
-    var num=Math.floor($(window).width()/boxWidth);
+    var boxWidth=box.eq(0).outerWidth();
+    var num=Math.floor($(window).width()/(boxWidth));
+    $("#container").css({
+        "width":boxWidth*num,
+        "margin":"0 auto"
+    });
     var boxArr=[];
     box.each(function(index,value){
         var boxHight=box.eq(index).height();
+        console.log(num+"```"+index);
         if(index<num){
             boxArr[index]=boxHight;
         }else{
